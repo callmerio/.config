@@ -100,12 +100,13 @@ export XDG_CONFIG_HOME=$HOME/.config
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='nvim'
-else
-   export EDITOR='nvim'
- fi
+export EDITOR='nvim'
 
+export PNPM_HOME="/home/riobigdan/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
 
 
 # Compilation flags
@@ -137,3 +138,11 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 export PATH="$HOME/.config/tmux/.tmuxifier/bin:$PATH"
 eval "$(tmuxifier init -)"
+
+# pnpm
+export PNPM_HOME="/home/riobigdan/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
