@@ -3,6 +3,9 @@
 -- Add any additional keymaps here
 vim.o.timeoutlen = 2000
 
+local discipline = require("rio.discipline")
+discipline.cowboy()
+
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
